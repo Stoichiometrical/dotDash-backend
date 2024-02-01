@@ -25,16 +25,22 @@ import jwt from "jsonwebtoken";
 // };
 
 // Register user
+
+
 export const register = async (req, res, next) => {
     try {
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(req.body.password, salt);
+
+
 
         const newUser = new User({
             fullName: req.body.fullName,
             email: req.body.email,
             password: hash,
             accountType: req.body.accountType,
+            location: req.body.location,
+            dateJoined:req.body.dateJoined,
         });
 
         await newUser.save();

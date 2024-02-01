@@ -15,7 +15,7 @@ export const updateUser= async (req, res) => {
 
 
 //delete user
-export const deleteUser= async (req, res,next) => {
+export const deleteUser= async (req, res) => {
     try{
         await User.findByIdAndDelete(req.params.id)
         res.json("User has been deleted")
