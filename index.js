@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import  mongoose from "mongoose"
 import authRoute from "./routes/auth.js"
 import usersRoute from "./routes/users.js"
+import cropRoute from "./routes/crop.js"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 import bodyParser from "body-parser"
@@ -43,6 +44,7 @@ mongoose.connection.on("connected",()=>{
 app.use(express.json())
 app.use("/api/auth",authRoute)
 app.use("/api/users",usersRoute)
+app.use("/api/crops",cropRoute)
 
 
 
